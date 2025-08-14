@@ -30,7 +30,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: [`http://localhost:5001`, `http://localhost:3000`],
+    origin: ['http://localhost:5001', 'http://localhost:3000','https://your-vercel-app.vercel.app'],
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -97,7 +97,7 @@ io.on("connection", (socket) => {
 app.use(express.json());
 
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:5001", "http://localhost:YOUR_FRONTEND_PORT"],
+  origin: ["http://localhost:3000", "http://localhost:5001", "https://your-vercel-app.vercel.app"],
   credentials: true,
 }));
 app.use("/", rt);
